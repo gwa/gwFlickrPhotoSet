@@ -1,0 +1,21 @@
+{
+    "name": "gwa/gw-flickrphotoset",
+    "description": "PHP flickr photoset class",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Great White Ark",
+            "homepage": "http://www.greatwhiteark.com"
+        }
+    ],
+    "homepage": "https://github.com/gwa/gwExceptions",
+    "require": {
+        "gwa/gw-exception": "1.0.*",
+        "gwa/gw-cache": "1.1.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Gwa\\Flickr\\": "src/Gwa/Flickr/"
+        }
+    }
+}
