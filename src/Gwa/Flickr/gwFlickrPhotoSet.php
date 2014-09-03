@@ -20,6 +20,11 @@ class gwFlickrPhotoSet
 	private $_flickrapikey;
 
 	/**
+	 * @var Gwa\Cache\gwCache
+	 */
+	private $_cache;
+
+	/**
 	 * @var string
 	 */
 	private $_cachedir;
@@ -88,15 +93,7 @@ class gwFlickrPhotoSet
 	public function getData()
 	{
 		if (isset($this->_cachedir)) {
-			$cache = new gwCache(
-				'flickrphotoset-'.$this->_idphotoset,
-				$this->_cacheminutes,
-				$this->_cachedir,
-				gwCache::TYPE_OBJECT
-			);
-			if ($cache->isCached()) {
-				return $cache->get();
-			}
+			$cache = $this->getCache();
 		}
 
 		$params = array(
@@ -119,5 +116,21 @@ class gwFlickrPhotoSet
 		}
 
 		return $responseobject['photoset']['photo'];
+	}
+
+	/**
+	 * @return Gwa\Cache\gwCache
+	 */
+	public function getCache()
+	{
+		if (!isset($this->_cache)) {
+			$this->_cache = new gwCache(
+				'flickrphotoset-'.$this->_idphotoset,
+				$this->_cachedir,
+				$this->_cacheminutes,
+				gwCache::TYPE_OBJECT
+			);
+		}
+		return $this->_cache;
 	}
 }

@@ -19,4 +19,17 @@ class gwFlickrPhotoSetTest extends PHPUnit_Framework_TestCase
 		$this->assertInternalType('array', $photo);
 		$this->assertTrue(array_key_exists('id', $photo));
 	}
+
+	public function testCache()
+	{
+		$config = require __DIR__.'/../config.php';
+		$photoset = gwFlickrPhotoSet::read($config['idphotoset'], $config['flickrapikey'], __DIR__.'/../temp');
+		$data = $photoset->getData();
+		$this->assertInternalType('array', $data);
+
+		$photoset = gwFlickrPhotoSet::read($config['idphotoset'], $config['flickrapikey'], __DIR__.'/../temp');
+		$cache = $photoset->getCache();
+		$this->assertTrue($cache->isCached());
+		$cache->clear();
+	}
 }
