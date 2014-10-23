@@ -11,7 +11,7 @@
     "homepage": "https://github.com/gwa/gwExceptions",
     "require": {
         "gwa/gw-exception": "1.0.*",
-        "gwa/gw-cache": "1.1.*"
+        "gwa/gw-cache": "1.2.*"
     },
     "autoload": {
         "psr-4": {
