@@ -36,10 +36,10 @@ class gwFlickrPhotoSet
 
     /**
      * @brief Reads a flickr photoset.
-     * @param  int              $idphotoset
-     * @param  string           $flickrapikey
-     * @param  string|null      $cacheDir
-     * @param  int              $cacheMinutes
+     * @param int         $idphotoset
+     * @param string      $flickrapikey
+     * @param string|null $cacheDir
+     * @param int         $cacheMinutes
      *
      * @throws gwCoreException
      *
