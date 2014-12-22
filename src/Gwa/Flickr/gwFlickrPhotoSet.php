@@ -136,7 +136,7 @@ class gwFlickrPhotoSet
         if ($stat === 'fail') {
             throw new gwCoreException(
                 gwCoreException::ERR_INVALID_ARGUMENT,
-                new gwCoreExceptionInfo('Your id '.$this->idPhotoset.'is not a valid photoset.')
+                'Your id '.$this->idPhotoset.'is not a valid photoset.'
             );
         }
     }
