@@ -3,7 +3,6 @@ namespace Gwa\Flickr;
 
 use Gwa\Cache\gwCache;
 use Gwa\Exception\gwCoreException;
-use Gwa\Exception\gwCoreExceptionInfo;
 
 /**
  * @brief Model representing a Flickr photoset
