@@ -2,3 +2,4 @@ vendor/
 tests/config.php
 tests/temp/*
 !tests/temp/.gitkeep
+composer.lock

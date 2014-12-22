@@ -1,5 +1,8 @@
 <?php
 return array(
-	'idphotoset' => '',
-	'flickrapikey' => ''
+    'idphotoset' => '',
+    'flickrapikey' => '',
+
+    /*Flicker data for exception test*/
+    'idphotoset2' => '',
 );
