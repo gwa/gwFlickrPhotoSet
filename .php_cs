@@ -11,5 +11,5 @@ $finder = Symfony\CS\Finder\DefaultFinder::create()
     ->in(__DIR__);
 
 return Symfony\CS\Config\Config::create()
-    // use default SYMFONY_LEVEL and extra fixers:
+    // use default PSR-2_LEVEL:
     ->finder($finder);
