@@ -3,6 +3,7 @@ namespace Gwa\Flickr;
 
 use Gwa\Cache\gwCache;
 use Gwa\Exception\gwCoreException;
+use Gwa\Exception\gwCoreExceptionInfo;
 
 /**
  * @brief Model representing a Flickr photoset
@@ -38,7 +39,7 @@ class gwFlickrPhotoSet
      * @brief Reads a flickr photoset.
      * @param  int              $idphotoset
      * @param  string           $flickrapikey
-     * @param  string           $cacheDir
+     * @param  string|null      $cacheDir
      * @param  int              $cacheMinutes
      *
      * @throws gwCoreException
@@ -92,6 +93,8 @@ class gwFlickrPhotoSet
      * ~~~~~~~~
      * @url http://www.flickr.com/services/api/flickr.galleries.getPhotos.html
      *
+     * @throws gwCoreException
+     *
      * @return array
      */
     public function getData()
@@ -133,7 +136,7 @@ class gwFlickrPhotoSet
         if ($stat === 'fail') {
             throw new gwCoreException(
                 gwCoreException::ERR_INVALID_ARGUMENT,
-                'Your id '.$this->idPhotoset.'is not a valid photoset.'
+                new gwCoreExceptionInfo('Your id '.$this->idPhotoset.'is not a valid photoset.')
             );
         }
     }
