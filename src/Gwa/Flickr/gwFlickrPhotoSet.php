@@ -1,8 +1,8 @@
 <?php
 namespace Gwa\Flickr;
 
-use Gwa\Exception\gwCoreException;
 use Gwa\Cache\gwCache;
+use Gwa\Exception\gwCoreException;
 
 /**
  * @brief Model representing a Flickr photoset
@@ -20,12 +20,12 @@ class gwFlickrPhotoSet
     private $flickrApiKey;
 
     /**
-     * @var Gwa\Cache\gwCache
+     * @var \Gwa\Cache\gwCache
      */
     private $cache;
 
     /**
-     * @var string
+     * @var string|null
      */
     private $cacheDir;
 
@@ -139,7 +139,7 @@ class gwFlickrPhotoSet
     }
 
     /**
-     * @return Gwa\Cache\gwCache
+     * @return \Gwa\Cache\gwCache
      */
     public function getCache()
     {
