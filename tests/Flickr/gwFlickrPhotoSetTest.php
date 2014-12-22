@@ -32,4 +32,17 @@ class gwFlickrPhotoSetTest extends PHPUnit_Framework_TestCase
 		$this->assertTrue($cache->isCached());
 		$cache->clear();
 	}
+
+	public function testException()
+	{
+		try {
+			$config = require __DIR__.'/../config.php';
+			$photoset = gwFlickrPhotoSet::read($config['idphotoset2'], $config['flickrapikey'], __DIR__.'/../temp');
+			$data = $photoset->getData();
+		} catch (Exception $exception) {
+			return;
+		}
+
+		$this->fail('An expected exception has not been raised.');
+	}
 }
