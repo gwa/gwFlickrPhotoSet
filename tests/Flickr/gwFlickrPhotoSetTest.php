@@ -11,7 +11,8 @@ class gwFlickrPhotoSetTest extends PHPUnit_Framework_TestCase
 
 	public function testGetData()
 	{
-		$config = require __DIR__.'/../config.php';
+		$config = require $this->getConfig();
+
 		$photoset = gwFlickrPhotoSet::read($config['idphotoset'], $config['flickrapikey']);
 		$data = $photoset->getData();
 		$this->assertInternalType('array', $data);
@@ -22,7 +23,8 @@ class gwFlickrPhotoSetTest extends PHPUnit_Framework_TestCase
 
 	public function testCache()
 	{
-		$config = require __DIR__.'/../config.php';
+		$config = require $this->getConfig();
+
 		$photoset = gwFlickrPhotoSet::read($config['idphotoset'], $config['flickrapikey'], __DIR__.'/../temp');
 		$data = $photoset->getData();
 		$this->assertInternalType('array', $data);
@@ -36,7 +38,8 @@ class gwFlickrPhotoSetTest extends PHPUnit_Framework_TestCase
 	public function testException()
 	{
 		try {
-			$config = require __DIR__.'/../config.php';
+			$config = require $this->getConfig();
+
 			$photoset = gwFlickrPhotoSet::read($config['idphotoset2'], $config['flickrapikey'], __DIR__.'/../temp');
 			$data = $photoset->getData();
 		} catch (Exception $exception) {
@@ -44,5 +47,16 @@ class gwFlickrPhotoSetTest extends PHPUnit_Framework_TestCase
 		}
 
 		$this->fail('An expected exception has not been raised.');
+	}
+
+	protected function getConfig()
+	{
+		$localConfig = __DIR__.'/../config.php';
+
+		if (file_exists($localConfig)) {
+			return $localConfig;
+		} else {
+			return __DIR__.'/../flickrConfig.php';
+		}
 	}
 }
