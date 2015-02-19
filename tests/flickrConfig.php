@@ -1,8 +1,8 @@
 <?php
 return array(
     'idphotoset' => '72157624618609504',
-    'flickrapikey' => getenv('KEY'),
+    'flickrapikey' => getenv('TRAVIS_KEY'),
 
     /*Flicker data for exception test*/
-    'idphotoset2' => '1487039626820',
+    'idphotoset2' => '14708208239',
 );
